@@ -81,7 +81,7 @@
         .bg-light {
             background-color: #F5F5F5 !important;
         }
-
+    
         .header-image {
             width: 100%;
             max-width: 600px;
@@ -117,82 +117,79 @@
             .section-title {
                 font-size: 1.5rem;
             }
-
+    
             .container {
                 padding-left: 15px;
                 padding-right: 15px;
             }
-
+    
             .row {
                 margin-left: -10px;
                 margin-right: -10px;
             }
-
+    
             .col-md-4, .col-md-6, .col-lg-6, .col-lg-8 {
                 padding-left: 10px;
                 padding-right: 10px;
             }
-
-            .card {
-                margin-bottom: 20px;
-            }
-
+    
             .py-5 {
                 padding-top: 3rem !important;
                 padding-bottom: 3rem !important;
             }
-
+    
             .mb-5 {
                 margin-bottom: 2rem !important;
             }
-
+    
             .display-4 {
                 font-size: 2.5rem;
             }
-
+    
             .lead {
                 font-size: 1.1rem;
             }
-
+    
             .btn-lg {
                 padding: 0.5rem 1rem;
                 font-size: 1rem;
             }
-
+    
             .header-image {
                 max-width: 100%;
                 height: auto;
                 margin-top: 20px;
             }
-
+    
             .service-image {
                 max-width: 150px;
             }
-        }
-        
-        /* CSS untuk tampilan mobile */
-        @media (max-width: 768px) {
-            .navbar-brand {
-                font-size: 1.2rem;
+            
+            /* Tambahan untuk responsivitas */
+            .card-body {
+                padding: 1rem;
             }
-            .navbar-toggler {
-                font-size: 1rem;
+            
+            .accordion-button {
+                padding: 0.75rem 1rem;
             }
-            h1 {
-                font-size: 2rem;
+            
+            .accordion-body {
+                padding: 1rem;
             }
-            .lead {
-                font-size: 1rem;
+            
+            #contactForm {
+                padding: 1rem;
             }
-            .btn-lg {
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
+
+            .cta-button-container {
+            text-align: center;
+            margin-bottom: 2rem;
             }
-            .card {
-                margin-bottom: 1rem;
-            }
-            .section-title {
-                font-size: 1.5rem;
+
+            .btn-primary.btn-lg {
+                display: inline-block;
+                margin: 0 auto;
             }
         }
         
@@ -286,7 +283,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary-custom sticky-top" data-gtag="nav-main">
         <div class="container" data-gtag="nav-container">
             <a class="navbar-brand" href="#" itemprop="name" data-gtag="nav-brand"><i class="fas fa-toilet"></i> Sedot WC Express</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" data-gtag="nav-toggle">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-gtag="nav-toggle">
                 <span class="navbar-toggler-icon" data-gtag="nav-toggle-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav" data-gtag="nav-collapse">
@@ -295,10 +292,28 @@
                     <li class="nav-item" data-gtag="nav-item"><a class="nav-link" href="#layanan" itemprop="url" data-gtag="nav-link-services"><i class="fas fa-tools"></i> Layanan</a></li>
                     <li class="nav-item" data-gtag="nav-item"><a class="nav-link" href="#tentang" itemprop="url" data-gtag="nav-link-about"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
                     <li class="nav-item" data-gtag="nav-item"><a class="nav-link" href="#kontak" itemprop="url" data-gtag="nav-link-contact"><i class="fas fa-envelope"></i> Kontak</a></li>
+                    <li class="nav-item" data-gtag="nav-item"><a class="nav-link" href="#faq" itemprop="url" data-gtag="nav-link-faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        var navbarToggler = document.querySelector('.navbar-toggler');
+        var navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 992) {
+                    navbarToggler.classList.add('collapsed');
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+    });
+    </script>
     
     <script type="application/ld+json" data-gtag="script-jsonld">
     {
@@ -354,7 +369,9 @@
                 <div class="col-lg-6" data-gtag="header-col-text">
                     <h1 class="display-4 fw-bold text-primary-custom" itemprop="headline" data-gtag="header-title"><i class="fas fa-pump-soap"></i> Jasa Sedot WC Terpercaya di Tasikmalaya</h1>
                     <p class="lead" itemprop="description" data-gtag="header-description">Kami menyediakan layanan sedot WC profesional 24/7 dengan harga terjangkau di Tasikmalaya.</p>
-                    <a href="#kontak" class="btn btn-primary btn-lg" itemprop="url" data-gtag="header-cta"><i class="fas fa-phone"></i> Hubungi Kami Sekarang</a>
+                    <div class="cta-button-container">
+                        <a href="#kontak" class="btn btn-primary btn-lg" itemprop="url" data-gtag="header-cta"><i class="fas fa-phone"></i> Hubungi Kami Sekarang</a>
+                    </div>
                 </div>
                 <div class="col-lg-6" data-gtag="header-col-image">
                     <img src="https://via.placeholder.com/500x300" alt="Sedot WC" class="img-fluid rounded-3" itemprop="image" data-gtag="header-image">
