@@ -82,6 +82,32 @@
             background-color: #F5F5F5 !important;
         }
         
+        /* CSS untuk tampilan mobile */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            .navbar-toggler {
+                font-size: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .lead {
+                font-size: 1rem;
+            }
+            .btn-lg {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+            .card {
+                margin-bottom: 1rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
         @media (forced-colors: active) {
             .btn-primary {
                 border: 2px solid currentColor;
@@ -477,46 +503,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary" data-gtag="contact-submit"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
                     </form>
-                    
-                    <script>
-                        // JS kritis
-                        function checkPhoneNumber(input) {
-                            var phoneError = document.getElementById('phoneError');
-                            if (input.value.length < 10) {
-                                phoneError.style.display = 'block';
-                            } else {
-                                phoneError.style.display = 'none';
-                            }
-                        }
-                        
-                        // Fungsi untuk memuat skrip secara asinkron
-                        function loadScript(src, callback) {
-                            var script = document.createElement('script');
-                            script.src = src;
-                            script.onload = callback;
-                            document.body.appendChild(script);
-                        }
-                        
-                        // Memuat jQuery dan skrip lainnya secara asinkron
-                        loadScript('https://code.jquery.com/jquery-3.6.0.min.js', function() {
-                            loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', function() {
-                                // Inisialisasi komponen Bootstrap di sini jika diperlukan
-                            });
-                            
-                            // Kode jQuery yang ada
-                            $(document).ready(function() {
-                                $('.navbar-toggler').click(function() {
-                                    $('#navbarNav').toggleClass('show');
-                                });
-                                
-                                $('.nav-link').click(function() {
-                                    $('.navbar-collapse').collapse('hide');
-                                });
-                                
-                                // ... kode jQuery lainnya ...
-                            });
-                        });
-                    </script>
                 </div>
             </div>
         </div>
