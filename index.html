@@ -81,6 +81,17 @@
         .bg-light {
             background-color: #F5F5F5 !important;
         }
+
+        .header-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+        .service-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
         
         /* CSS untuk tampilan mobile */
         @media (max-width: 768px) {
@@ -105,6 +116,57 @@
             }
             .section-title {
                 font-size: 1.5rem;
+            }
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .row {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+
+            .col-md-4, .col-md-6, .col-lg-6, .col-lg-8 {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+
+            .py-5 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            .mb-5 {
+                margin-bottom: 2rem !important;
+            }
+
+            .display-4 {
+                font-size: 2.5rem;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .btn-lg {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+
+            .header-image {
+                max-width: 100%;
+                height: auto;
+                margin-top: 20px;
+            }
+
+            .service-image {
+                max-width: 150px;
             }
         }
         
@@ -256,21 +318,9 @@
             loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', function() {
                 // Inisialisasi komponen Bootstrap di sini jika diperlukan
             });
-            
-            // Kode jQuery yang ada
-            $(document).ready(function() {
-                $('.navbar-toggler').click(function() {
-                    $('#navbarNav').toggleClass('show');
-                });
-                
-                $('.nav-link').click(function() {
-                    $('.navbar-collapse').collapse('hide');
-                });
-                
-                // ... kode jQuery lainnya ...
-            });
         });
     </script>
+
 
     <header class="py-5 bg-light" itemscope itemtype="https://schema.org/WPHeader" data-gtag="header">
         <div class="container" data-gtag="header-container">
@@ -286,6 +336,8 @@
             </div>
         </div>
     </header>
+
+
 
     <section id="layanan" class="py-5" itemscope itemtype="https://schema.org/Service" data-gtag="section-services">
         <div class="container" data-gtag="services-container">
@@ -518,28 +570,5 @@
             </nav>
         </div>
     </footer>
-    <div class="whatsapp-float" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;" data-gtag="whatsapp-float">
-        <a href="https://wa.me/6285311753779" target="_blank" rel="noopener noreferrer" class="whatsapp-link" style="display: flex; justify-content: center; align-items: center; width: 60px; height: 60px; background-color: var(--accent-color); color: var(--text-color); border-radius: 50%; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;" data-gtag="whatsapp-link">
-            <i class="fab fa-whatsapp" style="font-size: 32px;" data-gtag="whatsapp-icon"></i>
-        </a>
-    </div>
-    <script>
-    $(document).ready(function() {
-        $('.whatsapp-link').hover(
-            function() {
-                $(this).css({
-                    'transform': 'scale(1.1)',
-                    'box-shadow': '0 5px 15px rgba(0, 0, 0, 0.2), 0 0 0 8px rgba(100, 255, 218, 0.4), 0 0 0 16px rgba(100, 255, 218, 0.3), 0 0 0 24px rgba(100, 255, 218, 0.2)'
-                });
-            },
-            function() {
-                $(this).css({
-                    'transform': 'scale(1)',
-                    'box-shadow': '0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 5px rgba(100, 255, 218, 0.3), 0 0 0 10px rgba(100, 255, 218, 0.2), 0 0 0 15px rgba(100, 255, 218, 0.1)'
-                });
-            }
-        );
-    });
-    </script>
 </body>
 </html>
