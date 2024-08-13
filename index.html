@@ -363,6 +363,62 @@
             loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', function() {
                 // Inisialisasi komponen Bootstrap di sini jika diperlukan
             });
+            
+            // Tambahkan kode lazy loading
+            document.addEventListener("DOMContentLoaded", function() {
+                var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+                if ("IntersectionObserver" in window) {
+                    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                let lazyImage = entry.target;
+                                lazyImage.src = lazyImage.dataset.src;
+                                lazyImage.classList.remove("lazy");
+                                lazyImageObserver.unobserve(lazyImage);
+                            }
+                        });
+                    });
+
+                    lazyImages.forEach(function(lazyImage) {
+                        lazyImageObserver.observe(lazyImage);
+                    });
+                } else {
+                    // Fallback untuk browser yang tidak mendukung IntersectionObserver
+                    let active = false;
+
+                    const lazyLoad = function() {
+                        if (active === false) {
+                            active = true;
+
+                            setTimeout(function() {
+                                lazyImages.forEach(function(lazyImage) {
+                                    if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+                                        lazyImage.src = lazyImage.dataset.src;
+                                        lazyImage.classList.remove("lazy");
+
+                                        lazyImages = lazyImages.filter(function(image) {
+                                            return image !== lazyImage;
+                                        });
+
+                                        if (lazyImages.length === 0) {
+                                            document.removeEventListener("scroll", lazyLoad);
+                                            window.removeEventListener("resize", lazyLoad);
+                                            window.removeEventListener("orientationchange", lazyLoad);
+                                        }
+                                    }
+                                });
+
+                                active = false;
+                            }, 200);
+                        }
+                    };
+
+                    document.addEventListener("scroll", lazyLoad);
+                    window.addEventListener("resize", lazyLoad);
+                    window.addEventListener("orientationchange", lazyLoad);
+                }
+            });
         });
     </script>
 
@@ -378,7 +434,7 @@
                 </div>
             </div>
             <div class="col-lg-6" data-gtag="header-col-image">
-                <img src="https://via.placeholder.com/500x300" alt="Sedot WC" class="img-fluid rounded-3" itemprop="image" data-gtag="header-image">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://via.placeholder.com/500x300" alt="Sedot WC" class="img-fluid rounded-3 lazy" itemprop="image" data-gtag="header-image">
             </div>
         </div>
     </div>
@@ -393,7 +449,7 @@
                 <div class="col-md-4 mb-4" data-gtag="service-item">
                     <div class="card h-100" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog" data-gtag="service-card">
                         <div class="card-body" data-gtag="service-card-body">
-                            <img src="https://via.placeholder.com/150" alt="Sedot WC" class="card-img-top mb-3" itemprop="image" data-gtag="service-image">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://via.placeholder.com/150" alt="Sedot WC" class="card-img-top mb-3 lazy" itemprop="image" data-gtag="service-image">
                             <h3 class="card-title" itemprop="name" data-gtag="service-title"><i class="fas fa-toilet"></i> Sedot WC & Atasi Mampet</h3>
                             <p class="card-text" itemprop="description" data-gtag="service-description">
                                 Jasa sedot WC kami menawarkan solusi cepat dan efektif untuk masalah WC tersumbat atau penuh. Dengan teknologi modern dan peralatan canggih, kami mengatasi berbagai jenis masalah sanitasi dengan bersih dan higienis.
@@ -415,7 +471,7 @@
                 <div class="col-md-4 mb-4" data-gtag="service-item">
                     <div class="card h-100" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog" data-gtag="service-card">
                         <div class="card-body" data-gtag="service-card-body">
-                            <img src="https://via.placeholder.com/150" alt="Perbaikan Saluran" class="card-img-top mb-3" itemprop="image" data-gtag="service-image">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://via.placeholder.com/150" alt="Perbaikan Saluran" class="card-img-top mb-3 lazy" itemprop="image" data-gtag="service-image">
                             <h3 class="card-title" itemprop="name" data-gtag="service-title"><i class="fas fa-wrench"></i> Perbaikan Saluran</h3>
                             <p class="card-text" itemprop="description" data-gtag="service-description">
                                 Jasa perbaikan saluran kami mencakup berbagai aspek perawatan dan perbaikan sistem pembuangan air. Dengan pengalaman bertahun-tahun, tim kami mampu mendiagnosa dan memperbaiki berbagai masalah saluran, mulai dari kebocoran kecil hingga kerusakan parah pada pipa utama.
@@ -437,7 +493,7 @@
                 <div class="col-md-4 mb-4" data-gtag="service-item">
                     <div class="card h-100" itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog" data-gtag="service-card">
                         <div class="card-body" data-gtag="service-card-body">
-                            <img src="https://via.placeholder.com/150" alt="Pembersihan Septic Tank" class="card-img-top mb-3" itemprop="image" data-gtag="service-image">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://via.placeholder.com/150" alt="Pembersihan Septic Tank" class="card-img-top mb-3 lazy" itemprop="image" data-gtag="service-image">
                             <h3 class="card-title" itemprop="name" data-gtag="service-title"><i class="fas fa-recycle"></i> Pembersihan Septic Tank</h3>
                             <p class="card-text" itemprop="description" data-gtag="service-description">
                                 Jasa pembersihan septic tank kami menjamin sistem pembuangan Anda berfungsi optimal dan bebas masalah. Dengan pendekatan menyeluruh, kami tidak hanya membersihkan septic tank, tetapi juga melakukan pemeriksaan menyeluruh untuk memastikan sistem berfungsi dengan baik.
