@@ -654,6 +654,47 @@
                 <a href="/syarat-dan-ketentuan" data-gtag="footer-link-terms">Syarat dan Ketentuan</a>
             </nav>
         </div>
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" data-gtag="whatsapp-float">
+        <a href="https://wa.me/6285311753779" target="_blank" class="whatsapp-float-btn" data-gtag="whatsapp-float-btn" onclick="gtag('event', 'click', {'event_category': 'WhatsApp', 'event_action': 'Click', 'event_label': 'Float Button'});">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Menambahkan style ke elemen <style> yang sudah ada
+        document.addEventListener('DOMContentLoaded', function() {
+            var styleElement = document.querySelector('style[data-gtag="style"]');
+            if (styleElement) {
+                styleElement.textContent += `
+                    .whatsapp-float {
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        z-index: 1000;
+                    }
+                    .whatsapp-float-btn {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 60px;
+                        height: 60px;
+                        background-color: #25D366;
+                        color: #fff;
+                        border-radius: 50%;
+                        font-size: 30px;
+                        text-decoration: none;
+                        box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+                        transition: all 0.3s ease;
+                    }
+                    .whatsapp-float-btn:hover {
+                        background-color: #128C7E;
+                        transform: scale(1.1);
+                    }
+                `;
+            }
+        });
+    </script>
     </footer>
 </body>
 </html>
